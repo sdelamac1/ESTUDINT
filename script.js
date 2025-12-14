@@ -459,8 +459,12 @@ function loadQuestions() {
 
 function startQuiz() {
     questions = loadQuestions();
-    // Shuffle questions logic
-    questions.sort(() => Math.random() - 0.5);
+
+    // Fisher-Yates Shuffle (Algoritmo de mezcla robusto)
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
 
     currentQuestionIndex = 0;
     score = { correct: 0, incorrect: 0 };
