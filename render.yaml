@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: estudint-quiz
+    env: static
+    buildCommand: echo "No build command needed"
+    staticPublishPath: ./
+    branch: main
