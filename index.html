@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio: Verdadero o Falso</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Modo Estudio</h1>
+            <p>¿Verdadero o Falso?</p>
+        </header>
+
+        <main id="game-area">
+            <div id="start-screen" class="screen active">
+                <div class="info-card">
+                    <h2>Bienvenido</h2>
+                    <p>Prepárate para poner a prueba tus conocimientos.</p>
+                    <button id="start-btn" class="primary-btn">Comenzar Test</button>
+                    <!-- Temporary input for development/flexible usage if we want user to paste data directly in app later, 
+                         but for now we will hardcode the JS based on user chat input -->
+                </div>
+            </div>
+
+            <div id="quiz-screen" class="screen hidden">
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+                <div class="stats-bar">
+                    <span class="score-tag correct">C: <span id="correct-count">0</span></span>
+                    <span class="score-tag incorrect">I: <span id="incorrect-count">0</span></span>
+                    <span class="counter-tag"><span id="current-q">1</span> / <span id="total-q">--</span></span>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-content">
+                        <p id="question-text">Cargando pregunta...</p>
+                    </div>
+                    <div class="actions">
+                        <button id="true-btn" class="answer-btn true">Verdadero</button>
+                        <button id="false-btn" class="answer-btn false">Falso</button>
+                    </div>
+                </div>
+                <div id="feedback-overlay" class="hidden">
+                    <div class="feedback-content">
+                        <h2 id="feedback-title"></h2>
+                        <p id="feedback-msg"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="result-screen" class="screen hidden">
+                <div class="result-card">
+                    <h2>Resultados</h2>
+                    <div class="score-circle">
+                        <span id="final-score">0%</span>
+                    </div>
+                    <p>Acertaste <span id="final-correct">0</span> de <span id="final-total">0</span></p>
+                    
+                    <div class="action-buttons">
+                        <button id="restart-btn" class="primary-btn">Intentar de nuevo</button>
+                        <button id="review-btn" class="secondary-btn">Ver Historial</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="history-screen" class="screen hidden">
+                <h2>Historial de Preguntas</h2>
+                <ul id="history-list">
+                    <!-- Items populated by JS -->
+                </ul>
+                <button id="back-results-btn" class="secondary-btn">Volver a Resultados</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
